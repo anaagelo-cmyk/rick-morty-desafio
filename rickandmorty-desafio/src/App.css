@@ -6,35 +6,50 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1180px;
   margin: 40px auto;
-  padding: 32px;
-  background: #111827;
-  border-radius: 20px;
+  padding: 28px;
+  background: #0f172a;
+  border-radius: 18px;
+}
+
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 h1 {
-  margin-bottom: 8px;
-  color: #00e096;
-  font-size: 42px;
+  margin: 0 0 6px;
+  color: white;
+  font-size: 30px;
 }
 
 .subtitulo {
-  color: #a5b4fc;
-  margin-bottom: 28px;
-  font-size: 18px;
+  color: #93a4c7;
+  margin: 0 0 24px;
+}
+
+.contador-favoritos {
+  border: 1px solid #ff0080;
+  color: #ff8ac7;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .controles {
   display: flex;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 10px;
+  margin-bottom: 22px;
 }
 
 .busca {
   flex: 1;
   padding: 14px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid #334155;
   background: #1e293b;
   color: white;
@@ -47,46 +62,37 @@ h1 {
 }
 
 button {
-  border: none;
+  border: 1px solid #334155;
   border-radius: 10px;
   padding: 12px 16px;
   cursor: pointer;
   background: #1e293b;
   color: white;
-  transition: 0.2s;
-}
-
-button:hover {
-  opacity: 0.9;
 }
 
 button.ativo {
   background: #00c58e;
-}
-
-button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+  border-color: #00c58e;
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 14px;
 }
 
 .card {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 14px;
   background: #1e293b;
-  border: 2px solid transparent;
+  border: 1px solid #334155;
   cursor: pointer;
   transition: 0.2s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   border-color: #00c58e;
 }
 
@@ -94,29 +100,32 @@ button:disabled {
   border-color: #ff0080;
 }
 
-.card img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
+.card-topo {
+  height: 70px;
+  background: #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
 }
 
 .card-info {
-  padding: 16px;
+  padding: 14px;
 }
 
 .card-info h3 {
-  margin: 0 0 8px;
-  font-size: 22px;
+  margin: 0 0 6px;
+  font-size: 16px;
 }
 
 .card-info p {
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   color: #cbd5e1;
 }
 
 .badge {
   display: inline-block;
-  padding: 6px 10px;
+  padding: 5px 9px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: bold;
@@ -137,27 +146,28 @@ button:disabled {
 
 .favorito-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(15, 23, 42, 0.8);
-  border-radius: 999px;
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: 17px;
   z-index: 10;
 }
 
 .paginacao {
-  margin-top: 32px;
-  padding-top: 20px;
+  margin-top: 24px;
+  padding-top: 18px;
   border-top: 1px solid #334155;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: #7f95bd;
+}
+
+.paginacao div {
+  display: flex;
+  gap: 8px;
 }
 
 .mensagem {
@@ -171,30 +181,21 @@ button:disabled {
 .modal-fundo {
   position: fixed;
   inset: 0;
-
   background: rgba(0, 0, 0, 0.8);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 20px;
   z-index: 999;
 }
 
 .modal {
   position: relative;
-
   width: 100%;
   max-width: 420px;
-
   background: #1e293b;
-
   border-radius: 20px;
-
   padding: 24px;
-
-  animation: aparecer 0.2s ease;
 }
 
 .modal img {
@@ -211,35 +212,18 @@ button:disabled {
   position: absolute;
   top: 10px;
   right: 10px;
-
   background: #ef4444;
 }
 
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@media (max-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .controles {
+  .controles,
+  .topo {
     flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -247,17 +231,53 @@ button:disabled {
   .grid {
     grid-template-columns: 1fr;
   }
-
-  h1 {
-    font-size: 32px;
-  }
 }
-.contador-favoritos {
-  display: inline-block;
-  margin-bottom: 24px;
-  padding: 10px 18px;
-  border: 1px solid #ff0080;
-  border-radius: 999px;
-  color: #ff8ac7;
-  font-weight: bold;
+.card-imagem {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+.acoes-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tema-btn {
+  border: 1px solid #64748b;
+}
+
+.abas {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tema-claro {
+  background: #f8fafc;
+  color: #0f172a;
+}
+
+.tema-claro h1 {
+  color: #0f172a;
+}
+
+.tema-claro .subtitulo {
+  color: #475569;
+}
+
+.tema-claro .card,
+.tema-claro .busca,
+.tema-claro button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.tema-claro .card-topo {
+  background: #cbd5e1;
+}
+
+.tema-claro .card-info p {
+  color: #475569;
 }

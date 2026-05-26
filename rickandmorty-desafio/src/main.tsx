@@ -6,13 +6,14 @@ import "./App.css";
 import App from "./App";
 
 import { FavoritosProvider } from "./contexts/FavoritosContext";
+import { TemaProvider } from "./contexts/TemaContext";
 
-createRoot(
-  document.getElementById("root")!
-).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <FavoritosProvider>
-      <App />
-    </FavoritosProvider>
+    <TemaProvider>
+      <FavoritosProvider>
+        <App />
+      </FavoritosProvider>
+    </TemaProvider>
   </StrictMode>
 );
