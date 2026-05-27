@@ -189,7 +189,7 @@ export default function App() {
           </button>
 
           <div className="contador-favoritos">
-            💗 {favoritos.length} favoritos
+            ❤️ {favoritos.length} favoritos
           </div>
         </div>
       </div>
